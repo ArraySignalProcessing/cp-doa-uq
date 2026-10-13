@@ -1,0 +1,17 @@
+schema_version: 2
+global:
+  optimizer:
+    restarts: 3
+    balance_weight: 0.0
+    warm_start_iterations: 50
+    warm_start_tolerance: 1.0e-6
+    warm_start_ridge: 1.0e-8
+    relative_tolerance: 1.0e-12
+    gradient_tolerance: 1.0e-9
+    max_iterations: 500
+  methods:
+    proposed:
+      rcond: 1.0e-10
+      slice_mode: orthogonal
+      inversion_mode: structural_svd
+

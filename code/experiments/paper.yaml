@@ -1,0 +1,43 @@
+schema_version: 2
+shape: [12, 12, 64]
+rank: 3
+powers: [1.0, 1.0, 1.0]
+geometry:
+  fixed_angles_deg:
+    - {azimuth: -8.0, elevation: 30.0}
+    - {azimuth: 0.0, elevation: 35.0}
+    - {azimuth: 8.0, elevation: 40.0}
+  maximum_spatial_factor_condition: 10.0
+reporting:
+  confidence_levels: [0.5, 0.8, 0.9, 0.95]
+  correct_branch_max_uv_error: 0.10
+  paired_run_bootstrap_repetitions: 2000
+  summary_seed: 2026100905
+  anchors: [rho100_snr10, rho040_snr10, rho040_snr00]
+  example_condition: rho040_snr00
+  example_repeat: 0
+calibration:
+  seed: 2026100901
+  bootstrap_seed: 2026100902
+  bootstrap:
+    repetitions: 50
+    minimum_valid_fraction: 0.70
+  repeats: 100
+  methods: [actual_mask, fitted_full_rate_scaled, bootstrap]
+  snr_sweep:
+    observation_rate: 0.4
+    snr_db: [-10, -5, -2, 0, 2, 5, 10, 20]
+  observation_rate_sweep:
+    snr_db: 10
+    rates: [0.20, 0.25, 0.30, 0.40, 0.50, 0.60, 0.80, 1.00]
+boundary:
+  seed: 2026100903
+  repeats: 200
+  observation_rate: 0.6
+  snr_db: 10
+  noise_reference_power: 3.0
+  separations: [0.20, 0.15, 0.10, 0.075, 0.05, 0.03, 0.02, 0.01, 0]
+  geometry:
+    pair_center_uv: [0.30, 0.10]
+    fixed_target_uv: [-0.35, -0.20]
+    approach_direction: [1.0, 1.0]
